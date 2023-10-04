@@ -1,0 +1,184 @@
+1. Crie uma base de dados chamada Empresa
+R - use Empresa
+
+2. Adicione uma coleção chamada Pessoa
+R - db.createCollection("Pessoa")
+
+3. Atribua a cada Documento em Pessoa os seguintes atributos: nome, idade, cargo, cidade.
+R - db.Pessoa.insertMany([
+  {
+    nome: "João Silva",
+    idade: 35,
+    cargo: "Engenheiro de Software",
+    cidade: "São Paulo"
+  },
+  {
+    nome: "Maria Santos",
+    idade: 28,
+    cargo: "Enfermeira",
+    cidade: "Rio de Janeiro"
+  },
+  {
+    nome: "Pedro Oliveira",
+    idade: 42,
+    cargo: "Gerente de Vendas",
+    cidade: "Belo Horizonte"
+  },
+  {
+    nome: "Ana Pereira",
+    idade: 30,
+    cargo: "Professor",
+    cidade: "Brasília"
+  },
+  {
+    nome: "Carlos Souza",
+    idade: 45,
+    cargo: "Advogado",
+    cidade: "Porto Alegre"
+  },
+  {
+    nome: "Laura Costa",
+    idade: 25,
+    cargo: "Designer Gráfico",
+    cidade: "Recife"
+  },
+  {
+    nome: "Rafael Santos",
+    idade: 38,
+    cargo: "Médico",
+    cidade: "Salvador"
+  },
+  {
+    nome: "Sofia Almeida",
+    idade: 29,
+    cargo: "Analista de Marketing",
+    cidade: "Fortaleza"
+  },
+  {
+    nome: "Gabriel Lima",
+    idade: 33,
+    cargo: "Contador",
+    cidade: "Curitiba"
+  },
+  {
+    nome: "Isabela Fernandes",
+    idade: 31,
+    cargo: "Chef de Cozinha",
+    cidade: "Florianópolis"
+  }
+])
+
+4. Atualize os dados de duas pessoas, em que faça a complementação do nome e endereço.
+R- db.Pessoa.updateOne({nome: "João Silva"}, {$set: {nome: "João Silva Lima", endereco: "Av.Brasil"}})
+db.Pessoa.updateOne({nome: "Maria Santos"}, {$set: {nome: "Maria Santos Guerra", endereco: "Av.Brasilia"}})
+
+5. Filtre apenas as pessoas com idade maior que 25 anos, sem apareça o id.
+R - db.Pessoa.find({idade: {$gte: 25}})
+
+6. Faça a agregação para calcular a média de idade das pessoas por cidade.
+R - db.pessoas.aggregate([
+  {
+    $group: {
+      _id: "$cidade", 
+      mediaIdade: { $avg: "$idade" } 
+    }
+  }
+])
+
+
+
+7. Crie uma nova coleção dos setores de trabalho, em cada setor deverá constar: sigla, descrição e salário
+
+R - db.setores.insertMany([
+  {
+    sigla: "TI",
+    descricao: "Tecnologia da Informação",
+    salario: 6000
+  },
+  {
+    sigla: "SAU",
+    descricao: "Saúde",
+    salario: 5000
+  },
+  {
+    sigla: "ADM",
+    descricao: "Administração",
+    salario: 4500
+  },
+  {
+    sigla: "ENG",
+    descricao: "Engenharia",
+    salario: 5500
+  }
+])
+
+8. Qual o setor de trabalho com maior salário?
+
+R - db.setores.aggregate([
+  {
+    $group: {
+      _id: null,
+      maxSalario: { $max: "$salario" }
+    }
+  },
+  {
+    $lookup: {
+      from: "setores",
+      localField: "maxSalario",
+      foreignField: "salario",
+      as: "setorComMaiorSalario"
+    }
+  },
+  {
+    $unwind: "$setorComMaiorSalario"
+  },
+  {
+    $project: {
+      _id: 0,
+      "Setor com Maior Salário": "$setorComMaiorSalario.descricao",
+      "Maior Salário": "$setorComMaiorSalario.salario"
+    }
+  }
+])
+
+
+9. Qual o setor de trabalho com menor salário?
+
+R - db.setores.aggregate([
+  {
+    $group: {
+      _id: null,
+      minSalario: { $min: "$salario" }
+    }
+  },
+  {
+    $lookup: {
+      from: "setores",
+      localField: "minSalario",
+      foreignField: "salario",
+      as: "setorComMenorSalario"
+    }
+  },
+  {
+    $unwind: "$setorComMenorSalario"
+  },
+  {
+    $project: {
+      _id: 0,
+      "Setor com Menor Salário": "$setorComMenorSalario.descricao",
+      "Menor Salário": "$setorComMenorSalario.salario"
+    }
+  }
+])
+
+10. Qual a média dos salários dos setores de trabalho?
+
+R - db.pessoas.aggregate([
+  {
+    $group: {
+      _id: "$descricao", 
+      mediaIdade: { $avg: "$salario" } 
+    }
+  }
+])
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<passageiros>
+		<passageiro>
+				<nome>Pedro</nome>
+				<idade>23</idade>
+				<numeroT>1223</numeroT>
+				<origem>Campina-Grande</origem>
+				<destino>São Paulo</destino>
+		</passageiro>
+		<passageiro>
+				<nome>Gilvando</nome>
+				<idade>22</idade>
+				<numeroT>3214</numeroT>
+				<origem>São Paulo</origem>
+				<destino>Campina-Grande</destino>
+		</passageiro>
+		<passageiro>
+				<nome>Isa</nome>
+				<idade>21</idade>
+				<numeroT>5235</numeroT>
+				<origem>João Pessoa</origem>
+				<destino>Rio de Janeiro</destino>
+		</passageiro>
+		<passageiro>
+				<nome>Beto</nome>
+				<idade>33</idade>
+				<numeroT>6474</numeroT>
+				<origem>Porto Alegre</origem>
+				<destino>Fortaleza</destino>
+		</passageiro>
+		<passageiro>
+				<nome>Gil</nome>
+				<idade>23</idade>
+				<numeroT>2647</numeroT>
+				<origem>Vila Velha</origem>
+				<destino>Salvador</destino>
+		</passageiro>
+</passageiros>

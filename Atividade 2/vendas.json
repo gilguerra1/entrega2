@@ -1,0 +1,28 @@
+{
+  "servico": "Loja Online de Roupas",
+  "website": "www.exemplo.com",
+  "ano_de_lancamento": 2015,
+  "categorias": ["Roupas", "Acessórios", "Calçados"],
+  "produtos": [
+    {
+      "nome": "Camiseta",
+      "preco": 19.99,
+      "estoque": 500
+    },
+    {
+      "nome": "Calça Jeans",
+      "preco": 39.99,
+      "estoque": 300
+    },
+    {
+      "nome": "Sapato de Couro",
+      "preco": 79.99,
+      "estoque": 200
+    }
+  ],
+  "avaliacoes": {
+    "media_de_avaliacao": 4.5,
+    "numero_de_avaliacoes": 1200
+  },
+  "frete_gratis": true
+}

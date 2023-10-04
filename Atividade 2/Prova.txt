@@ -1,0 +1,36 @@
+1 - Consiste na garantia que um dado que foi salvo seja possível abrir ele no futuro
+
+2 - Os objetos transientes existem apenas durante a execução do programa enquanto os objetos persistente eles são salvos e podem ser usados em outros programas 
+
+3 - A principal diferença entre eles está na estrutura de dados e na abordagem da modelagem, o banco relacional utiliza tabelas relacionais enquanto o orientado a objeto usam objetos para armazenar dados
+
+4 - Fazer com que um programa o.o consiga relacionar com um banco de dados relacional 
+
+5 a - São dados organizados de forma pré definida, em linhas e colunas num formato de tabela
+
+5 b - Dados organizados no formato chave-valor será assemelhando ao dicionário em Python, possuem hierarquia 
+
+5 c - São dados que não apresentam um formato definido 
+
+6 - JSOUP
+
+7 a - A versão do XMl e a codificação de caracteres
+
+7 b - Organizado em formato hieráquico
+
+7 c - Arvore ou textual
+
+9 - É um formato para representação e troca de dados. Possuí suporte para diversos tipos de dados, suporta qualquer nível de hierarquia e não suporta comentários
+
+10 - Serialização é o processo de criar um texto JSON válido com os dados contidos nas estrutura. A desserialização processo inverso da serialização onde converte o JSON em valores e objetos que possam ser usados em um programa
+
+12 - JSON usa uma sintaxe mais simples baseada em pares de chave-valor, enquanto XML usa tags de abertura e fechamento. JSON usa objetos e arrays enquanto o XML usa elementos e atributos. JSON é mais rapido
+
+12+1 - Serve para que um programa em java consiga se conectar a um banco de dados
+
+14 -
+     Conexão JBDC("Connection") - Utilizando driver e o URL é criada a conexão JBDC usando a classe ""Connection"
+     Statemente - Usado para executar instruções SQL no banco de dados
+     ResulSet - Objeto que armazena o resultado de uma consulta SQL
+
+15 - Escolher um driver JDBC compatível com o SGBD e priorizar a segurança, prevenindo a injeção de SQL.
